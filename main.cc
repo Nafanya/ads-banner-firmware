@@ -16,7 +16,7 @@
 #define dot1 pb1
 #define dot2 pb0
 #define dot3 pd6
-#define dot4 pb5
+#define dot4 pd5
 #define dot5 pd4
 
 #define windows  pb7
@@ -134,8 +134,11 @@ int main(void) {
 
 void wait(unsigned int seconds) {
   // TODO: tweak
-  volatile unsigned int del = 20000 * seconds;
-  while(del--);
+  volatile unsigned int i = 2;
+  while (i--) {
+    volatile unsigned int del = 20000 * seconds;
+    while(del--);
+  }
 }
 
 void clear(void) {
